@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyRetroTV</title>
+    <link rel="stylesheet" href="assest/style.css">
+</head>
+<body>
+    <div class="tv"> <img src="images/tvbackclean.webp" alt=""> </div>
+    <div class="time"> <img src="images/logoboxcreased.webp" alt=""> </div>
+
+    <button onclick="toggleVideo()" style="z-index: 1; position: relative; top: 469.5px; left: 479.8px; height: 24px; width: 24px; border: 1px; border-radius: 20px; background-color: gainsboro;"> </button>
+
+    <div id="videoContainer">
+        <video id="myVideo">
+            <source src="images/Bow Wow, Jagged Edge - My Baby.mp4" type="video/mp4">
+        </video>
+    </div>
+    
+  
+
+<div class="container">
+    <div class="menu">
+
+    </div>
+</div>
+
+<div id="tvbuttons" class="tvremotebackground">
+    <ul>
+        <li>
+            <button class="tvremote" style="color: rgb(0, 255, 0);" onclick="toggleVideo()">POWER</button>
+        </li>
+        <li>
+            <button id="btn_next" type="button" name="" value="" class="tvremote tvremotebutton-on" style="color: rgb(0, 0, 0);">KANAL ▲</button>
+        </li>
+        <li>
+            <button id="btn_prev" type="button" name="" value="" class="tvremote tvremotebutton-on" style="color: rgb(0, 0, 0);">KANAL ▼</button>
+        </li>
+        <li>
+            <button class="tvremote" onclick="changeVolume(0.1)">SES +</button>
+        </li>
+        <li>
+            <button  class="tvremote" onclick="changeVolume(-0.1)">SES -</button>
+        </li>
+    </ul>
+</div>
+
+    <script>
+        function toggleVideo() {
+            var videoContainer = document.getElementById("videoContainer");
+            var video = document.getElementById("myVideo");
+
+
+            if (videoContainer.style.display === "none" || videoContainer.style.display === "") {
+                videoContainer.style.display = "block"; // Video görünür olsun
+
+                video.play(); // Videoyu başlat
+            } else {
+                video.pause(); // Videoyu durdur
+                video.currentTime = 0; // Videoyu başa sar
+                videoContainer.style.display = "none"; // Videoyu gizle
+                volumeIndicator.style.display = "none"; // Ses göstergesini gizle
+                volumeControls.style.display = "none"; // Ses göstergesini aç
+                volumeControls.style.display = "none";
+            }
+        }
+
+        function changeVolume(amount) {
+            var video = document.getElementById("myVideo");
+            var volumeBar = document.getElementById("volumeBar");
+            var volumeText = document.getElementById("volumeText");
+
+            var newVolume = video.volume + amount;
+
+            if (newVolume > 1) {
+                newVolume = 1; // Maksimum ses
+            } else if (newVolume < 0) {
+                newVolume = 0; // Sesi tamamen kapat
+            }
+
+            video.volume = newVolume;
+            volumeBar.value = newVolume;
+            volumeText.innerText = Math.round(newVolume * 100) + "%"; // Yüzde olarak göster
+        }
+
+        document.addEventListener("DOMContentLoaded", function() {
+    var video = document.getElementById("myVideo");
+
+    // Sağ tıklamayı engelle
+    video.addEventListener("contextmenu", function(e) {
+        e.preventDefault();
+    });
+
+    // Klavye kısayollarını devre dışı bırak
+    document.addEventListener("keydown", function(e) {
+        if (["Space", "ArrowUp", "ArrowDown", "ArrowRight", "ArrowLeft", "KeyF"].includes(e.code)) {
+            e.preventDefault();
+        }
+    });
+});
+
+
+
+
+
+
+
+
+document.addEventListener('keydown', function(event) {
+            // F tuşuna basıldığında tam ekran yapmak
+            if (event.key === 'F' || event.key === 'f') {
+                toggleFullScreen();
+            }
+        });
+
+        function toggleFullScreen() {
+            var videoElement = document.querySelector('video'); // İlk video elementini seç
+
+            if (!document.fullscreenElement &&    // Eğer şu anda tam ekran değilse
+                !document.mozFullScreenElement && // Firefox için
+                !document.webkitFullscreenElement && // Chrome ve Safari için
+                !document.msFullscreenElement) {  // IE/Edge için
+                if (videoElement.requestFullscreen) {
+                    videoElement.requestFullscreen(); // Videoyu tam ekran yap
+                } else if (videoElement.mozRequestFullScreen) { // Firefox
+                    videoElement.mozRequestFullScreen();
+                } else if (videoElement.webkitRequestFullscreen) { // Chrome ve Safari
+                    videoElement.webkitRequestFullscreen();
+                } else if (videoElement.msRequestFullscreen) { // IE/Edge
+                    videoElement.msRequestFullscreen();
+                }
+            } else {
+                // Tam ekrandan çıkmak
+                if (document.exitFullscreen) {
+                    document.exitFullscreen();
+                } else if (document.mozCancelFullScreen) { // Firefox
+                    document.mozCancelFullScreen();
+                } else if (document.webkitExitFullscreen) { // Chrome ve Safari
+                    document.webkitExitFullscreen();
+                } else if (document.msExitFullscreen) { // IE/Edge
+                    document.msExitFullscreen();
+                }
+            }
+        }
+
+
+    </script>
+</body>
+</html>

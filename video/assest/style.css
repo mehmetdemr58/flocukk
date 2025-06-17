@@ -1,0 +1,179 @@
+body{background-color: black;}
+.tv{position: absolute; z-index: 1; left: 0; top: 20px; border: 0 solid #000; }
+.time img{position: absolute; z-index: 10; left: 620px; top: 440px; height: 75px;}
+
+
+
+          /* Video başlangıçta gizli olacak */
+          #videoContainer {
+            display: none;
+            position: relative;
+            top: 17px; /* Videoyu yukarıda başlat */
+            left: 4%;
+            width: 80%; /* Genişliği ayarla */
+            max-width: 900px; /* Maksimum genişlik */
+            background: black;
+            padding: 10px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+            
+            
+        }
+    
+        /* Video boyutlandırma */
+        #myVideo {
+            position: absolute;
+            
+            height: auto; /* Oranını koru */
+            min-height: 364px; /* Maksimum yükseklik */
+            z-index: 1;
+        }
+
+
+         /* Ses kontrol butonları */
+    .volume-controls {
+        bottom: 721.1px;
+        left: 512px;
+        position: relative;
+        display: none; /* Başlangıçta gizli */
+    }
+
+    .volume-controls button {
+
+        font-size: 14px;
+        cursor: pointer;
+        border: 1px;
+        color: white;
+        border-radius: 25px;
+       
+        
+    }
+
+    /* Ses seviyesi göstergesi */
+    .volume-indicator {
+        margin-top: 10px;
+        font-size: 16px;
+        color: black;
+        bottom: 734px;
+        left: 450px;
+        position: relative;
+       display: none;
+    }
+
+    #volumeBar {
+        width: 100px;
+        height: 10px;
+        
+    }
+
+   .menu{border: 2px;}
+
+
+
+
+
+   #remotestatus {
+    width: 270px;
+    height: 28px;
+    top: 552px;
+    font-family: "blippo",monospace;
+    color: #0f0;
+    text-align: left;
+    font-size: 14px;
+    line-height: 14px
+}
+
+#remotestatus,#tvbuttons {
+    position: absolute;
+    z-index: 10;
+    left: 832px
+}
+
+#tvbuttons {
+    top: 350px;
+    line-height: 30px;
+    margin-bottom: 0;
+    margin-left: 20px;
+}
+.tvremotebackground {
+    border: 3px solid #3d3b3b;
+    border-radius: 10px;
+    background-image: linear-gradient(90deg,#7d7d7d,#3f3838 49%,#afafaf);
+    position: absolute;
+    box-shadow: 10px 10px 5px rgba(0,0,0,.5);
+    width: 120px;
+    height: 200px
+}
+button.tvremote {
+    font-family: Arial,Helvetica,sans-serif;
+    font-size: 14px;
+    color: #000;
+    width: 100px;
+    height: 18px;
+    background-color: #707070;
+    outline: none;
+    border-radius: 30px;
+    border: 1px solid #000;
+    box-shadow: 0 1px 3px rgba(0,0,0,.5),inset 0 0 1px hsla(0,0%,100%,.7);
+    text-shadow: 0 -1px 0 rgba(0,0,0,.4),0 1px 0 hsla(0,0%,100%,.3);
+    position: inherit;
+    cursor: pointer;
+    overflow: visible;
+    padding: 0
+}
+ul {
+    list-style-type: none;
+    padding: 0 0 0 6px;
+    margin: 0
+}
+
+ul li {
+    padding: 3px
+}
+
+
+video::-webkit-media-controls {
+    display: none !important;
+}
+
+
+
+
+
+
+
+   @media (min-width: 2540px) {
+    #videoContainer {
+        left: 2.85%!important; width: 26%!important;
+    }
+}
+@media  (max-width: 1440px) {
+    #videoContainer {
+        left: 5%!important; width: 26%!important;
+    }
+}
+@media (max-width: 1024px) {
+    #videoContainer {
+        left: 7.1%!important; width: 26%!important;
+    }
+}
+@media  (max-width: 768px) {
+    #videoContainer {
+        left: 9.85%!important; width: 26%!important;
+    }
+}
+@media  (max-width: 425px) {
+    #videoContainer {
+        left: 18%!important; width: 26%!important;
+    }
+}
+@media (max-width: 375px) {
+    #videoContainer {
+        left: 20%!important; width: 26%!important;
+    }
+}
+@media (max-width: 320px)  {
+    #videoContainer  {
+        left: 23.5%!important; width: 26%!important;
+    }
+}
