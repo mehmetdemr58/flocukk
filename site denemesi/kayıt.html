@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kullanıcı Kayıt ve Giriş Sayfası</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .form-container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .form-container form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="password"] {
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        input[type="submit"] {
+            padding: 10px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #218838;
+        }
+
+        .form-toggle {
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        .form-toggle a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        .form-toggle a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="form-container" id="registerForm">
+        <h2>Kayıt Ol</h2>
+        <form action="#" method="post">
+            <input type="text" name="username" placeholder="Kullanıcı Adı" required>
+            <input type="email" name="email" placeholder="E-posta" required>
+            <input type="password" name="password" placeholder="Şifre" required>
+            <input type="password" name="confirmPassword" placeholder="Şifre Tekrar" required>
+            <input type="submit" value="Kayıt Ol">
+        </form>
+        <div class="form-toggle">
+            Zaten bir hesabınız var mı? <a href="#" onclick="toggleForm()">Giriş Yap</a>
+        </div>
+    </div>
+
+    <div class="form-container" id="loginForm" style="display: none;">
+        <h2>Giriş Yap</h2>
+        <form action="#" method="post">
+            <input type="text" name="username" placeholder="Kullanıcı Adı" required>
+            <input type="password" name="password" placeholder="Şifre" required>
+            <input type="submit" value="Giriş Yap">
+        </form>
+        <div class="form-toggle">
+            Hesabınız yok mu? <a href="#" onclick="toggleForm()">Kayıt Ol</a>
+        </div>
+    </div>
+
+    <script>
+        function toggleForm() {
+            var registerForm = document.getElementById('registerForm');
+            var loginForm = document.getElementById('loginForm');
+            
+            if (registerForm.style.display === "none") {
+                registerForm.style.display = "block";
+                loginForm.style.display = "none";
+            } else {
+                registerForm.style.display = "none";
+                loginForm.style.display = "block";
+            }
+        }
+    </script>
+
+</body>
+</html>
